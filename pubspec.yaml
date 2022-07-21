@@ -1,0 +1,50 @@
+name: profile
+description: A candidate profile management app.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.4
+  cupertino_icons: ^1.0.2
+  intl: ^0.17.0
+  change_app_package_name: ^1.1.0
+  shared_preferences: ^2.0.15
+  connectivity_plus: ^2.3.5
+  flutter_dotenv: ^5.0.2
+  package_info_plus: ^1.4.2
+  device_info_plus: ^4.0.0
+  flutter_secure_storage: ^5.0.2
+  get: ^4.6.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - .env
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: fonts/Lato-Light.ttf
+        - asset: fonts/Lato-Thin.ttf
+        - asset: fonts/Lato-Regular.ttf
+        - asset: fonts/Lato-Black.ttf
+
+    - family: Help
+      fonts:
+        - asset: fonts/Help.ttf
