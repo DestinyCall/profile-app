@@ -1,12 +1,13 @@
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
+//import 'dart:async';
+//import 'dart:convert';
+//import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:profile/src/utils/const.dart' as _constants;
 import 'package:profile/src/utils/validation.dart';
 import 'package:profile/src/screens/login/login.dart';
 import 'package:profile/src/api_controller/api_controller.dart';
+import 'package:profile/src/utils/app_localization.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -22,7 +23,8 @@ class _RegisterScreenState extends State<Register> with ValidationMixin {
   String? password;
   String? name;
   final _formKey = GlobalKey<FormState>();
-  final _formKey1 = GlobalKey<FormState>();
+
+  AppLocalizations? appLocalizations;
 
   @override
   void initState() {
@@ -33,7 +35,7 @@ class _RegisterScreenState extends State<Register> with ValidationMixin {
   Widget build(BuildContext context) {
     deviceHeight = MediaQuery.of(context).size.height;
     deviceWidth = MediaQuery.of(context).size.width;
-
+    appLocalizations = AppLocalizations.of(context);
     return SafeArea(
         child: Scaffold(
           body: LayoutBuilder(builder: (context, constraints) {
@@ -61,7 +63,7 @@ class _RegisterScreenState extends State<Register> with ValidationMixin {
             Hero(tag: 'logo', child: Image.asset('assets/images/logo.png', height: 100, width: deviceWidth * 0.4)),
             SizedBox(height: deviceHeight * 0.02),
             Text(
-              'Create Candidate Profile',
+              appLocalizations?.translate('create_profile') as String,
               style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.grey.shade500),
             ),
             SizedBox(height: deviceHeight * 0.05),
@@ -85,11 +87,11 @@ class _RegisterScreenState extends State<Register> with ValidationMixin {
                         return result;
                       }
                     },
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Name *',
-                      hintText: 'Enter your name',
-                      prefixIcon: Icon(
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      labelText: appLocalizations?.translate('name'),
+                      hintText: appLocalizations?.translate('enter_your_name'),
+                      prefixIcon: const Icon(
                         Icons.person,
                         color: _constants.iconColors,
                       ),
@@ -101,11 +103,11 @@ class _RegisterScreenState extends State<Register> with ValidationMixin {
                     onSaved: (value) {
                       name = value;
                     },
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Email *',
-                      hintText: 'Your email address',
-                      prefixIcon: Icon(
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      labelText: appLocalizations?.translate('email'),
+                      hintText: appLocalizations?.translate('your_email'),
+                      prefixIcon: const Icon(
                         Icons.email,
                         color: _constants.iconColors,
                       ),
@@ -117,10 +119,11 @@ class _RegisterScreenState extends State<Register> with ValidationMixin {
                     onSaved: (value) {
                       name = value;
                     },
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password *',
-                      prefixIcon: Icon(
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      labelText:  appLocalizations?.translate('password'),
+                      hintText: appLocalizations?.translate('set_password'),
+                      prefixIcon: const Icon(
                         Icons.visibility_off,
                         color: _constants.iconColors,
                       ),
@@ -131,7 +134,7 @@ class _RegisterScreenState extends State<Register> with ValidationMixin {
             ),
             const SizedBox(height: _constants.commonMargin * 2),
             Text(
-              'Already have account',
+              appLocalizations?.translate('already_have_account') as String,
               style: Theme.of(context).textTheme.subtitle1?.copyWith(color: Colors.grey.shade500, fontWeight: FontWeight.w500),
             ),
             const SizedBox(height: 10),
@@ -145,14 +148,14 @@ class _RegisterScreenState extends State<Register> with ValidationMixin {
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
-                  'Login',
+                  appLocalizations?.translate('login') as String,
                   style: Theme.of(context).textTheme.subtitle1?.copyWith(color: _constants.primaryColor, fontWeight: FontWeight.w500),
                 ),
               ),
             ),
             const SizedBox(height: 60),
             FloatingActionButton.extended(
-              label: const Text('Register'), // <-- Text
+              label: Text(appLocalizations?.translate('register') as String), // <-- Text
               backgroundColor: _constants.primaryColor,
               icon: const Icon(
                 Icons.add,

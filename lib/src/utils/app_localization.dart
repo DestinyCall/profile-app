@@ -14,9 +14,7 @@ class AppLocalizations {
   }
 
   Future<bool> load() async {
-    if (Utils.prefs==null) {
-      Utils?.prefs = await SharedPreferences.getInstance();
-    }
+    Utils.prefs ??= await SharedPreferences.getInstance();
     String? languageCode = Utils.prefs?.getString('languageCode');
 
 
