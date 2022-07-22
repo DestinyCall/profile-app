@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-typedef ValueCallback<T>(T);
-
+typedef ValueCallback = Function<T>(T);
 const langMap = {'en': 'English', 'hi': 'हिन्दी'};
 
 // api module
