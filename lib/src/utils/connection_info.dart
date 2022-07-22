@@ -14,7 +14,6 @@ class ConnectionStatusListener
   final StreamController _streamController = StreamController.broadcast();
   Stream get connectionChange => _streamController.stream;
   final Connectivity _connectivity = Connectivity();
-
   void initialize() {
     _connectivity.onConnectivityChanged.listen(_connectionChange);
   }
