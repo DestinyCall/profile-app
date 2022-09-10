@@ -53,7 +53,7 @@ class _RegisterScreenState extends State<Login> with ValidationMixin {
       children: [
         Column(
           children: [
-            Hero(tag: 'logo', child: Image.asset('assets/images/logo.png', height: 100, width: deviceWidth * 0.4)),
+            Hero(tag: 'logo', child: Image.asset('assets/images/login.png', height: 100, width: deviceWidth * 0.4)),
             SizedBox(height: deviceHeight * 0.02),
             Text(
               'Sign In',

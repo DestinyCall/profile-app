@@ -60,7 +60,7 @@ class _RegisterScreenState extends State<Register> with ValidationMixin {
       children: [
         Column(
           children: [
-            Hero(tag: 'logo', child: Image.asset('assets/images/logo.png', height: 100, width: deviceWidth * 0.4)),
+            Hero(tag: 'logo', child: Image.asset('assets/images/register.png', height: 100, width: deviceWidth * 0.4)),
             SizedBox(height: deviceHeight * 0.02),
             Text(
               appLocalizations?.translate('create_profile') as String,

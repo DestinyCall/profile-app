@@ -43,8 +43,8 @@ class _SplashScreenState extends State<Splash> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: <Color>[
-                  Colors.blue,
-                  Colors.red
+                  Colors.white54,
+                  Colors.white70
                 ])),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
